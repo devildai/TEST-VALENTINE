@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samikshya ❤️ | Happy Birthday + Valentine</title>
+  <meta name="description" content="A Valentine + Birthday website for my Love." />
+
+  <style>
+    :root{
+      --bg1:#070411;
+      --bg2:#120827;
+      --card:#ffffff10;
+      --stroke:#ffffff1a;
+      --text:#f6f1ff;
+      --muted:#cbbef7;
+      --pink:#ff4d8d;
+      --rose:#ff2d6f;
+      --violet:#7c4dff;
+      --gold:#ffd58a;
+      --shadow: 0 20px 80px rgba(0,0,0,.48);
+      --radius: 22px;
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 80% -10%, #ff4d8d33 0%, transparent 60%),
+        radial-gradient(900px 600px at 10% 0%, #7c4dff2a 0%, transparent 55%),
+        radial-gradient(900px 600px at 70% 110%, #ffd58a22 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 90px}
+    .glass{
+      background:linear-gradient(180deg, #ffffff14, #ffffff0b);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Top bar */
+    .top{
+      position:sticky; top:10px; z-index:30;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 14px;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: radial-gradient(circle at 30% 30%, #fff, #fff0 60%),
+                 linear-gradient(135deg, var(--pink), var(--violet));
+      box-shadow:0 10px 30px #ff4d8d30;
+      position:relative;
+    }
+    .logo:after{
+      content:"❤";
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      font-size:18px;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+    }
+
+    .brand b{letter-spacing:.2px; font-size:14px}
+    .brand small{display:block; color:var(--muted); margin-top:2px; font-size:12px}
+
+    .actions{display:flex; gap:10px; align-items:center}
+    .btn{
+      cursor:pointer;
+      border:1px solid #ffffff26;
+      background:#ffffff12;
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.2s transform, .2s background, .2s border, .2s filter;
+      display:inline-flex; gap:8px; align-items:center;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px); background:#ffffff18; border-color:#ffffff33}
+    .btn:active{transform:translateY(0px) scale(.99)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--rose), var(--pink));
+      border-color:#ffffff30;
+      box-shadow: 0 14px 40px #ff2d6f25;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .pill{
+      font-size:12px; padding:8px 10px; border-radius:999px;
+      background:#00000026; border:1px solid #ffffff1f;
+      color:var(--muted);
+      display:flex; gap:8px; align-items:center;
+    }
+    .dot{width:7px; height:7px; border-radius:50%; background: #31ffb2; box-shadow:0 0 16px #31ffb255}
+
+    /* Hero */
+    .hero{ margin-top:16px; padding:30px 16px 18px; position:relative; overflow:hidden; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .hero-grid{grid-template-columns:1fr} }
+
+    .kicker{
+      color:var(--muted);
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:12px;
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .kicker span{
+      background:linear-gradient(135deg,#ffffff22,#ffffff0a);
+      padding:6px 10px; border:1px solid #ffffff1a; border-radius:999px;
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height:1.06;
+      letter-spacing:-.02em;
+    }
+    .grad{
+      background: linear-gradient(90deg, #fff, #ffd58a, #ff4d8d);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{
+      color:#efe8ff;
+      opacity:.92;
+      font-size:16px;
+      line-height:1.75;
+      max-width: 68ch;
+    }
+
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .chip{
+      border:1px solid #ffffff1f;
+      background:#ffffff10;
+      color:#f5eeff;
+      padding:10px 12px;
+      border-radius:16px;
+      display:flex; align-items:center; gap:10px;
+      min-width: 210px;
+      flex: 1 1 210px;
+    }
+    .chip b{display:block}
+    .chip small{color:var(--muted)}
+    .icon{
+      width:34px; height:34px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, #ffffff1a, #ffffff08);
+      border:1px solid #ffffff18;
+    }
+
+    /* Right side */
+    .side{ padding:14px; display:flex; flex-direction:column; gap:12px; }
+    .photoCard{
+      border-radius: 20px;
+      border:1px solid #ffffff1c;
+      background: linear-gradient(135deg, #ffffff10, #ffffff06);
+      overflow:hidden;
+      position:relative;
+    }
+    .photoCard .topcap{
+      padding:12px 12px 10px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      background: linear-gradient(180deg, #00000022, transparent);
+      position:absolute;
+      inset:0 0 auto 0;
+      z-index:2;
+      pointer-events:none;
+    }
+    .photoCard .topcap b{font-size:15px}
+    .photoCard .topcap small{color:var(--muted)}
+    .photoCard .heart{
+      width:50px; height:50px; border-radius:18px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, #ff2d6f, #ff70b1);
+      border:1px solid #ffffff22;
+      box-shadow:0 22px 60px #ff2d6f35;
+      transform: rotate(8deg);
+      font-size:20px;
+      flex: 0 0 auto;
+      pointer-events:none;
+    }
+
+    .img16x9{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
+    }
+    .img9x16{
+      width:100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
+    }
+    .twocol{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .twocol{grid-template-columns:1fr} }
+
+    .panel{
+      padding:14px;
+      border:1px solid #ffffff1a;
+      border-radius:18px;
+      background:#ffffff0c;
+    }
+    .panel .t{color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase}
+    .panel .v{margin-top:8px; font-size:18px; font-weight:900; line-height:1.4}
+    .bar{
+      margin-top:10px; height:10px;
+      background:#00000025;
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid #ffffff12;
+    }
+    .bar > i{
+      display:block; height:100%;
+      width:70%;
+      background:linear-gradient(90deg, var(--gold), var(--pink));
+      border-radius:999px;
+      box-shadow: 0 0 20px #ff4d8d30;
+      animation: fill 2.2s ease forwards;
+    }
+    @keyframes fill{from{width:18%}to{width:70%}}
+
+    /* Sections */
+    section{margin-top:18px}
+    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+
+    .card{ padding:18px; position:relative; overflow:hidden; }
+    .card h2{ margin:0 0 10px; font-size:20px; letter-spacing:-.01em; }
+    .card p{ margin:0; color:#f3edff; opacity:.9; line-height:1.75 }
+    .muted{color:var(--muted)}
+
+    .list{margin-top:12px; display:grid; gap:10px}
+    .item{
+      border:1px solid #ffffff1a;
+      background:#ffffff0b;
+      border-radius:16px;
+      padding:12px;
+      display:flex; gap:10px;
+      align-items:flex-start;
+    }
+    .badge{
+      min-width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg,#ffffff18,#ffffff08);
+      border:1px solid #ffffff1a;
+      flex: 0 0 auto;
+    }
+    .item b{display:block; font-size:15px}
+    .item small{display:block; color:var(--muted); margin-top:4px; line-height:1.55}
+
+    /* Timeline */
+    .timeline{margin-top:12px; display:grid; gap:10px}
+    .trow{
+      display:grid; grid-template-columns: 150px 1fr;
+      gap:12px; align-items:start;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid #ffffff1a;
+      background:#ffffff0b;
+    }
+    @media (max-width:560px){ .trow{grid-template-columns:1fr} }
+    .date{
+      color:var(--muted);
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .trow b{font-size:15px}
+    .trow p{margin:4px 0 0; color:#efe8ff; opacity:.9; line-height:1.65}
+
+    /* Promise section */
+    .promise{
+      text-align:center;
+      padding:18px;
+    }
+    .promise .big{
+      font-size: clamp(18px, 2.4vw, 22px);
+      font-weight:900;
+      line-height:1.6;
+      margin:10px auto 0;
+      max-width: 70ch;
+    }
+    .ring{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid #ffffff1f;
+      background:#ffffff0c;
+      color:#f6f1ff;
+      margin-top:14px;
+      font-weight:800;
+    }
+
+    /* Modal */
+    .backdrop{
+      position:fixed; inset:0;
+      display:none;
+      background: rgba(0,0,0,.58);
+      backdrop-filter: blur(10px);
+      z-index:60;
+      padding:22px;
+      align-items:center; justify-content:center;
+    }
+    .backdrop.show{display:flex}
+    .modal{
+      width:min(760px, 100%);
+      border-radius: 24px;
+      border:1px solid #ffffff26;
+      background: linear-gradient(180deg, #140a2a, #0b0616);
+      box-shadow: 0 30px 120px rgba(0,0,0,.62);
+      overflow:hidden;
+      transform: translateY(10px);
+      animation: pop .25s ease forwards;
+    }
+    @keyframes pop{to{transform:translateY(0)}}
+    .modal-h{
+      padding:16px 18px;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid #ffffff1a;
+      background: #ffffff08;
+      gap:12px;
+    }
+    .modal-h b{font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+    .modal-b{padding:18px}
+    .letter{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid #ffffff1a;
+      background: linear-gradient(180deg, #ffffff0f, #ffffff08);
+      line-height:1.9;
+      color:#f7f2ff;
+      font-size:15px;
+    }
+
+    /* Footer */
+    footer{margin-top:18px; text-align:center; color:var(--muted); opacity:.9}
+    footer b{color:var(--text)}
+
+    /* Hearts canvas */
+    canvas#hearts{
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:5;
+      opacity:.8;
+    }
+
+    /* Reveal */
+    .reveal{opacity:0; transform: translateY(12px); transition:.7s ease}
+    .reveal.show{opacity:1; transform:none}
+
+    /* Small helper */
+    .note{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:.95;
+      line-height:1.5;
+    }
+
+    /* Mobile top bar */
+    @media (max-width:560px){
+      .actions{gap:8px}
+      .pill{display:none}
+      .btn{padding:10px 11px}
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="hearts"></canvas>
+
+  <div class="wrap">
+    <!-- Top bar -->
+    <div class="top glass">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <b>For <span class="grad" id="herName">Samikshya</span> ❤️</b>
+          <small id="subTitle">Happy Birthday + Happy Valentine’s Day (same day, same queen)</small>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="pill"><span class="dot"></span><span id="countdown">Counting down…</span></div>
+        <button class="btn" id="burstBtn" title="Tiny celebration">🎉 Celebrate</button>
+        <button class="btn primary" id="openLetter">💌 Open letter</button>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero glass reveal">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">
+            <span>Birthday + Valentine</span>
+            <span id="yearTag">2026</span>
+            <span>From: <span class="grad" id="yourName">Manish</span></span>
+          </div>
+
+          <h1>
+            Samikshya, you’re my<br/>
+            <span class="grad">favorite person</span>  even when you’re my favorite “Angry Bird.” 🐦❤️
+          </h1>
+
+          <p class="lead">
+            We’ve been together since <b>September 2, 2021</b> <span class="muted">(Bhadra 17, 2078 BS)</span>.
+            And in all these years… one truth stays the same:
+            <b>whenever we meet face to face, everything bad disappears.</b>
+            The fights, the ego, the blocks, the angry chats, they all feel small…
+            because <b>you</b> feel real. You feel like home.
+          </p>
+
+          <div class="hero-cta">
+            <button class="btn primary" id="startBtn">✨ Start the surprise</button>
+            <button class="btn" id="scrollTimeline">🗓️ Our timeline</button>
+            <button class="btn" id="askBtn">💘 The question</button>
+          </div>
+
+          <div class="chips">
+            <div class="chip">
+              <div class="icon">🗓️</div>
+              <div>
+                <b>Since</b>
+                <small class="muted">Sept 2, 2021 · Bhadra 17, 2078 BS</small>
+              </div>
+            </div>
+            <div class="chip">
+              <div class="icon">🎂</div>
+              <div>
+                <b>Your day</b>
+                <small class="muted">Feb 14 — Birthday + Valentine</small>
+              </div>
+            </div>
+            <div class="chip">
+              <div class="icon">🕊️</div>
+              <div>
+                <b>Our truth</b>
+                <small class="muted">Chat fights… real-life peace</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            P.S. If you’re smiling right now, that’s already my favorite gift. 🙂
+          </div>
+        </div>
+
+        <div class="side glass">
+          <!-- us.jpg (16:9) -->
+          <div class="photoCard">
+            <div class="topcap">
+              <div>
+                <b>Us (the calm after the storm)</b>
+                <small>Where everything feels right</small>
+              </div>
+              <div class="heart">❤</div>
+            </div>
+            <img class="img16x9" src="us.jpg" alt="Us photo (16:9)" />
+          </div>
+
+          <div class="twocol">
+            <div class="panel">
+              <div class="t">Angry Bird meter</div>
+              <div class="v">Very high 😤❤️</div>
+              <div class="bar"><i></i></div>
+            </div>
+
+            <div class="panel">
+              <div class="t">Love meter</div>
+              <div class="v">Even higher ♾️</div>
+              <div class="bar"><i style="animation-delay:.15s"></i></div>
+            </div>
+          </div>
+
+          <!-- her.jpg (9:16) -->
+          <div class="photoCard">
+            <div class="topcap">
+              <div>
+                <b>You (my whole heart)</b>
+                <small>Most beautiful, most dangerous 🐦</small>
+              </div>
+              <div class="heart" style="background:linear-gradient(135deg,#7c4dff,#ff4d8d)">✨</div>
+            </div>
+            <img class="img9x16" src="her.jpg" alt="Her photo (9:16)" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Reasons -->
+    <section class="grid">
+      <div class="card glass reveal">
+        <h2>🌹 Why I love you (even when you’re mad)</h2>
+        <p class="muted">
+          Your anger is loud, but your love is louder — I’ve felt it in the way you care, the way you protect,
+          and the way you still come back to “us.”
+        </p>
+
+        <div class="list">
+          <div class="item">
+            <div class="badge">🔥</div>
+            <div>
+              <b>You feel everything deeply.</b>
+              <small>That’s why small things can hurt… and that’s why your love is also powerful.</small>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="badge">🫶</div>
+            <div>
+              <b>When we meet, we become “us” again.</b>
+              <small>Real-life you is my peace. The world becomes quiet.</small>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="badge">💎</div>
+            <div>
+              <b>You’re rare.</b>
+              <small>Not perfect, rare. And I don’t want a perfect love, I want a real one with you.</small>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="badge">😂</div>
+            <div>
+              <b>You’re my favorite trouble.</b>
+              <small>Like an angry bird… cute, dangerous, and somehow still my whole heart. 😭❤️</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="card glass reveal" id="timelineCard">
+        <h2>📸 Our timeline</h2>
+        <p class="muted">Some moments that live inside me forever.</p>
+
+        <div class="timeline">
+          <div class="trow">
+            <div class="date">Sept 2, 2021</div>
+            <div>
+              <b>The day we became “we.”</b>
+              <p>
+                Since <b>Bhadra 17, 2078</b>… I’ve had someone to fight with, laugh with,
+                and love again and again.
+              </p>
+            </div>
+          </div>
+
+          <div class="trow">
+            <div class="date">Our chats 😤</div>
+            <div>
+              <b>We fight a lot on messages.</b>
+              <p>
+                Sometimes it becomes so intense that you block me everywhere.
+                And honestly… that hurts.
+              </p>
+            </div>
+          </div>
+
+          <div class="trow">
+            <div class="date">Our meets ❤️</div>
+            <div>
+              <b>But when we meet physically…</b>
+              <p>
+                We forget everything bad. It’s like our love remembers the truth
+                <b>we’re not enemies we’re each other’s person.</b>
+              </p>
+            </div>
+          </div>
+
+          <div class="trow">
+            <div class="date">Today</div>
+            <div>
+              <b>I’m choosing effort, not excuses.</b>
+              <p>
+                I’m sorry for hurting you time to time.
+                I’m not here to defend myself, I’m here to love you better.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secret / apology + promise -->
+    <section>
+      <div class="card glass reveal">
+        <h2>🔒 Tap to unlock what I really want to say</h2>
+        <p class="muted">This is the honest part.</p>
+
+        <div class="list">
+          <div class="item" id="secretBox" style="cursor:pointer">
+            <div class="badge">💌</div>
+            <div>
+              <b>Tap here, Samikshya.</b>
+              <small>Read it slowly… like you read my heart.</small>
+            </div>
+          </div>
+
+          <div class="item" id="secretReveal" style="display:none">
+            <div class="badge">🥺</div>
+            <div>
+              <b>I’m sorry.</b>
+              <small>
+                I know I’ve hurt you time to time. I know I’ve made promises before especially that
+                “next birthday we’ll be married” — and it didn’t happen yet.<br/><br/>
+                But I don’t want to keep repeating words. I want to change my actions.
+                I want you to feel secure, respected, and loved, not just when we meet,
+                but also in chats, in anger, in distance, in every moment.
+              </small>
+            </div>
+          </div>
+
+          <div class="item" id="promiseReveal" style="display:none">
+            <div class="badge">💍</div>
+            <div>
+              <b>This is my promise to you.</b>
+              <small>
+                <b>This is the last time</b> we celebrate your Birthday + Valentine as boyfriend & girlfriend.
+                <b>Next one, we celebrate as husband & wife.</b><br/><br/>
+                Not as a “line” — as a decision. As effort. As proof. As responsibility.
+                I’m serious about you, darling. I choose you. Fully.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          If your angry bird wants to peck me for this… go ahead. 😭 But please don’t leave.
+        </div>
+      </div>
+    </section>
+
+    <!-- Final question -->
+    <section>
+      <div class="card glass reveal promise" id="questionCard">
+        <h2>💘 The Question</h2>
+        <p class="muted">Birthday + Valentine, same day… so I’m asking properly.</p>
+
+        <div class="big">
+          Samikshya, will you be my Valentine today <br/>
+          and my wife for every Valentine after this?
+        </div>
+
+        <div class="ring">💍 “Not just love… commitment.”</div>
+
+        <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:16px">
+          <button class="btn primary" id="yesBtn">Yes ❤️</button>
+          <button class="btn" id="noBtn">No 🙈</button>
+        </div>
+
+        <div id="answer" style="margin-top:14px; font-weight:900; font-size:18px"></div>
+
+        <div class="note">
+          If you press “No”, the button will try to run away because even it knows it’s lying. 😌
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      Made with a lot of love by <b id="footerName">Manish</b> · <span class="muted">Happy Feb 14 ❤️</span>
+    </footer>
+  </div>
+
+  <!-- Love letter modal -->
+  <div class="backdrop" id="backdrop" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-h">
+        <b>Love Letter</b>
+        <button class="btn" id="closeLetter">✖ Close</button>
+      </div>
+      <div class="modal-b">
+        <div class="letter" id="letterText">
+          My Samikshya,<br/><br/>
+          Happy Birthday and Happy Valentine’s Day on the same day, like destiny did that on purpose.<br/><br/>
+
+          I know we fight a lot in chats. Sometimes over small things. Sometimes your angry bird comes out and blocks me everywhere.
+          And I won’t lie it hurts. But when we meet in real life… everything changes. We forget every bad thing and we remember the truth
+          that we’re not meant to be strangers. We’re meant to be close. We’re meant to be “us.”<br/><br/>
+
+          I’m sorry for hurting you time to time. I’m sorry for the moments when my actions didn’t match my words.
+          I know I made promises before and some didn’t become real yet. But I’m not writing this to repeat lines.
+          I’m writing this because I’m choosing you seriously with responsibility, effort, and proof.<br/><br/>
+
+          So here’s my promise, from my heart:
+          <b>This is the last Feb 14 we celebrate as boyfriend & girlfriend.</b>
+          <b>Next one, we celebrate as husband & wife.</b><br/><br/>
+
+          Not because it sounds romantic because I’m making it real.
+          I want you to feel safe in my love. I want you to feel proud of us.
+          I want to build a life where even when we argue, we never disrespect the bond we protect it.<br/><br/>
+
+          Always yours,<br/>
+          <b>— Manish</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== Personal details ======
+    const CONFIG = {
+      herName: "Samikshya",
+      yourName: "Manish",
+      // Valentine's Day / Birthday countdown (Nepal time)
+      targetISO: "2026-02-14T00:00:00+05:45"
+    };
+
+    // ====== Helpers ======
+    const $ = (q)=>document.querySelector(q);
+
+    // Populate names
+    $("#herName").textContent = CONFIG.herName;
+    $("#yourName").textContent = CONFIG.yourName;
+    $("#footerName").textContent = CONFIG.yourName;
+
+    // Countdown
+    function tick(){
+      const target = new Date(CONFIG.targetISO).getTime();
+      const now = Date.now();
+      const d = target - now;
+      const el = $("#countdown");
+      if(d <= 0){
+        el.textContent = "It’s Feb 14 ❤️";
+        return;
+      }
+      const days = Math.floor(d / (1000*60*60*24));
+      const hrs = Math.floor((d / (1000*60*60)) % 24);
+      const mins = Math.floor((d / (1000*60)) % 60);
+      el.textContent = `${days}d ${hrs}h ${mins}m to Feb 14`;
+    }
+    tick();
+    setInterval(tick, 1000 * 20);
+
+    // Reveal on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      for(const e of entries){
+        if(e.isIntersecting) e.target.classList.add("show");
+      }
+    }, {threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+
+    // Modal letter
+    const backdrop = $("#backdrop");
+    $("#openLetter").onclick = ()=> { backdrop.classList.add("show"); backdrop.setAttribute("aria-hidden","false"); burst(18); };
+    $("#closeLetter").onclick = ()=> { backdrop.classList.remove("show"); backdrop.setAttribute("aria-hidden","true"); };
+    backdrop.addEventListener("click",(e)=>{ if(e.target === backdrop) $("#closeLetter").click(); });
+
+    // Scroll buttons
+    $("#scrollTimeline").onclick = ()=> $("#timelineCard").scrollIntoView({behavior:"smooth", block:"start"});
+    $("#askBtn").onclick = ()=> $("#questionCard").scrollIntoView({behavior:"smooth", block:"center"});
+    $("#startBtn").onclick = ()=> { burst(26); $("#timelineCard").scrollIntoView({behavior:"smooth", block:"start"}); };
+    $("#burstBtn").onclick = ()=> burst(30);
+
+    // Secret reveal
+    $("#secretBox").onclick = ()=>{
+      $("#secretBox").style.display="none";
+      $("#secretReveal").style.display="flex";
+      setTimeout(()=>{ $("#promiseReveal").style.display="flex"; burst(35); }, 650);
+      burst(20);
+    };
+
+    // The question
+    $("#yesBtn").onclick = ()=>{
+      $("#answer").textContent = "Yay 😭❤️ Happy Birthday, my love. Happy Valentine’s Day. Always you.";
+      burst(45);
+    };
+    $("#noBtn").onclick = ()=>{
+      const btn = $("#noBtn");
+      const dx = (Math.random()*260 - 130);
+      const dy = (Math.random()*130 - 65);
+      btn.style.transform = `translate(${dx}px,${dy}px)`;
+      $("#answer").textContent = "Nice try pressing NO 😌 ";
+    };
+
+    // Confetti-ish burst
+    function burst(n=20){
+      for(let i=0;i<n;i++){
+        const s = document.createElement("div");
+        s.textContent = ["❤","✨","💞","🌟","💗","💘"][Math.floor(Math.random()*6)];
+        s.style.position="fixed";
+        s.style.left = (window.innerWidth*0.12 + Math.random()*window.innerWidth*0.76) + "px";
+        s.style.top  = (window.innerHeight*0.18 + Math.random()*window.innerHeight*0.55) + "px";
+        s.style.fontSize = (14 + Math.random()*22) + "px";
+        s.style.zIndex = 80;
+        s.style.filter = "drop-shadow(0 10px 18px rgba(0,0,0,.35))";
+        s.style.pointerEvents="none";
+        document.body.appendChild(s);
+
+        const x = (Math.random()*460 - 230);
+        const y = -(120 + Math.random()*300);
+        const r = (Math.random()*140 - 70);
+        s.animate([
+          { transform:`translate(0,0) rotate(0deg)`, opacity:1 },
+          { transform:`translate(${x}px, ${y}px) rotate(${r}deg)`, opacity:0 }
+        ], {duration: 1200 + Math.random()*650, easing:"cubic-bezier(.2,.8,.2,1)"});
+
+        setTimeout(()=>s.remove(), 2000);
+      }
+    }
+
+    // Floating hearts canvas
+    const canvas = document.getElementById("hearts");
+    const ctx = canvas.getContext("2d");
+    let W,H,hearts=[];
+    function resize(){
+      W = canvas.width = window.innerWidth * devicePixelRatio;
+      H = canvas.height = window.innerHeight * devicePixelRatio;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    function makeHeart(){
+      const x = Math.random()*W;
+      const y = H + Math.random()*H*0.2;
+      const s = (8 + Math.random()*18) * devicePixelRatio;
+      return {x,y,s,vy:(.35 + Math.random()*1.05)*devicePixelRatio, vx:(Math.random()-.5)*.25*devicePixelRatio, a: .35 + Math.random()*.45, w: Math.random()*Math.PI*2};
+    }
+    for(let i=0;i<48;i++) hearts.push(makeHeart());
+
+    function drawHeart(x,y,size){
+      ctx.save();
+      ctx.translate(x,y);
+      ctx.scale(size/20, size/20);
+      ctx.beginPath();
+      ctx.moveTo(0, 6);
+      ctx.bezierCurveTo(0, -2, -12, -2, -12, 6);
+      ctx.bezierCurveTo(-12, 14, 0, 18, 0, 22);
+      ctx.bezierCurveTo(0, 18, 12, 14, 12, 6);
+      ctx.bezierCurveTo(12, -2, 0, -2, 0, 6);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function loop(){
+      ctx.clearRect(0,0,W,H);
+      for(const h of hearts){
+        h.y -= h.vy;
+        h.x += h.vx + Math.sin(h.w)*0.3*devicePixelRatio;
+        h.w += 0.02;
+        if(h.y < -80*devicePixelRatio) Object.assign(h, makeHeart());
+
+        const g = ctx.createLinearGradient(h.x, h.y, h.x, h.y + h.s*2);
+        g.addColorStop(0, `rgba(255,77,141,${h.a})`);
+        g.addColorStop(1, `rgba(124,77,255,${h.a*0.55})`);
+        ctx.fillStyle = g;
+        drawHeart(h.x, h.y, h.s);
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
